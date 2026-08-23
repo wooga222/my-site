@@ -1,11 +1,96 @@
 <!DOCTYPE html>
-<html lang="ko">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <style>
-    </style>
+<html lang="ko"><head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<style>    * {
+        box-sizing: border-box;
+    }
+
+    body {
+        margin: 0;
+        padding: 0;
+        min-height: 6000px;
+
+        color: white;
+    }
+
+    .parent {
+        position: relative;
+        height: 6000px;
+        background: #222;
+    }
+
+    .sticky {
+        position: sticky;
+        height: 30px;
+
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .sticky1 {
+        top: 0;
+        background: #e53935;
+    }
+
+    .sticky2 {
+        top: 30px;
+        bottom: 30px;
+        background: #1e88e5;
+    }
+
+    .sticky3 {
+        top: 60px;
+        bottom: 0;
+        background: #43a047;
+    }
+
+    .section {
+        height: 1970px;
+        padding: 20px;
+    }
+
+    .section1 {
+        background: #795548;
+    }
+
+    .section2 {
+        background: #6a1b9a;
+    }
+
+    .section3 {
+        background: #00897b;
+    }
+</style>
 </head>
+
 <body>
-</body>
-</html>
+
+<div class="parent">
+    <div class="sticky sticky1">
+        STICKY 1 — TOP 0
+    </div>
+    <section class="section section1">
+        SECTION 1
+    </section>
+
+    <div class="sticky sticky2">
+        STICKY 2 — TOP 30 / BOTTOM 30
+    </div>
+    <section class="section section2">
+        SECTION 2
+    </section>
+
+    <div class="sticky sticky3">
+        STICKY 3 — TOP 60 / BOTTOM 0
+    </div>
+    <section class="section section3">
+        SECTION 3
+    </section>
+
+</div>
+
+
+</body></html>
