@@ -3,65 +3,61 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<style>    * {
+<style>
+    @font-face {
+        font-family: 'ManhwaPromotionAgency';
+        src:
+            url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_seven@1.2/KOMACON.woff') format('woff');
+        font-weight: normal;
+        font-display: swap;
+}
+    
+    * {
         box-sizing: border-box;
     }
 
     body {
+        font-family: 'ManhwaPromotionAgency';
         margin: 0;
         padding: 0;
-        min-height: 6000px;
-
-        color: white;
     }
 
     .parent {
         position: relative;
         height: 6000px;
-        background: #222;
     }
 
     .sticky {
         position: sticky;
         height: 30px;
-
         display: flex;
         align-items: center;
         justify-content: center;
+        background-color: white;
     }
 
     .sticky1 {
         top: 0;
-        background: #e53935;
+        border-bottom: 1px solid black;
     }
 
     .sticky2 {
-        top: 30px;
-        bottom: 30px;
-        background: #1e88e5;
+        top: 29px;
+        bottom: 29px;
+        border-top: 1px solid black;
+        border-bottom: 1px solid black;
     }
 
     .sticky3 {
-        top: 60px;
+        top: 58px;
         bottom: 0;
-        background: #43a047;
+        border-top: 1px solid black;
+        border-bottom: 1px solid black;
     }
 
     .section {
         height: 1970px;
         padding: 20px;
-    }
-
-    .section1 {
-        background: #795548;
-    }
-
-    .section2 {
-        background: #6a1b9a;
-    }
-
-    .section3 {
-        background: #00897b;
     }
 </style>
 </head>
@@ -73,24 +69,27 @@
         STICKY 1 — TOP 0
     </div>
     <section class="section section1">
-        SECTION 1
+        SECTION 1<br>
+        border: 1px solid black;
     </section>
 
     <div class="sticky sticky2">
-        STICKY 2 — TOP 30 / BOTTOM 30
+        STICKY 2 — TOP 29 / BOTTOM 29
     </div>
     <section class="section section2">
-        SECTION 2
+    SECTION 2<br>
+    stick height: 30px;<br>
+    border-top, bottom: 1px<br>
+    30 - 1 = 29
     </section>
 
     <div class="sticky sticky3">
-        STICKY 3 — TOP 60 / BOTTOM 0
+        STICKY 3 — TOP 58 / BOTTOM 0
     </div>
     <section class="section section3">
         SECTION 3
     </section>
 
 </div>
-
 
 </body></html>
