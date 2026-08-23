@@ -3,77 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>상세페이지 스티키 타이틀 밀어내기 예시</title>
     <style>
-        * { box-sizing: border-box; margin: 0; padding: 0; }
-        body { 
-            font-family: sans-serif; 
-            max-width: 480px; 
-            margin: 0 auto; 
-            background: #f9f9f9;
-        }
-
-        /* 각 섹션 스타일 */
-        .section {
-            margin-bottom: 20px;
-        }
-
-        /* 각 섹션 내부의 스티키 타이틀 (서로 밀어내는 구조) */
-        .section-title {
-            position: sticky;
-            top: 0; /* 화면 맨 위에 붙음 */
-            background: #ffeb33; 
-            padding: 14px 16px;
-            font-size: 16px;
-            font-weight: bold;
-            border-top: 1px solid #ddd;
-            border-bottom: 1px solid #ddd;
-            z-index: 10;
-        }
-
-        /* 섹션 내용물 영역 (높이를 1200px로 넉넉히 지정) */
-        .section-content {
-            background: #ffffff;
-            padding: 20px 16px;
-            min-height: 1200px; 
-            font-size: 14px;
-            color: #666;
-            line-height: 1.6;
-        }
     </style>
 </head>
 <body>
-
-    <!-- 상세정보 섹션 -->
-    <div id="info" class="section">
-        <div class="section-title">상세정보</div>
-        <div class="section-content">
-            여기는 상세정보 내용입니다.<br>
-            스크롤을 내려보세요!<br>
-            다음 섹션인 '제원 및 스펙' 타이틀이 올라오면서 이 '상세정보' 타이틀을 위로 밀어내는 것을 볼 수 있습니다.
-        </div>
-    </div>
-
-    <!-- 제원 섹션 -->
-    <div id="spec" class="section">
-        <div class="section-title">제원 및 스펙</div>
-        <div class="section-content">
-            - 사이즈: Free<br>
-            - 소재: 면 100%<br>
-            - 제조국: 대한민국<br>
-            제원 내용들이 쭉 나열됩니다.
-        </div>
-    </div>
-
-    <!-- 리뷰 섹션 -->
-    <div id="review" class="section">
-        <div class="section-title">리뷰 (128)</div>
-        <div class="section-content">
-            ⭐ 5.0 - 너무 좋아요!<br>
-            ⭐ 5.0 - 배송이 빠릅니다.<br>
-            사용자들의 생생한 리뷰가 들어가는 공간입니다.
-        </div>
-    </div>
-
 </body>
 </html>
