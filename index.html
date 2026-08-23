@@ -24,6 +24,15 @@
         border-right: 1px solid black;
     }
 
+    /* 사용자 경험이 중요하다. 이것을 무시하면 디자이너의 무지개 똥을 뭍힌 모양새가 된다. 리퀴드 클래스는 반면교사로 훌륭하다. */
+    .top-cover {
+        position: fixed;
+        top: -30px;
+        height: 30px;
+        background: white;
+        z-index: 2;
+    }
+
     .parent {
         position: relative;
         height: 6000px;
@@ -67,6 +76,7 @@
 </head>
 
 <body>
+<div class="top-cover"></div>
 
 <div class="parent">
     <div class="sticky sticky1">
