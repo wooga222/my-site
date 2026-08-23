@@ -114,31 +114,29 @@
 
 <script>
     const message = document.querySelector('.section1');
-    
+
     const normalMessage = `SECTION 1
-    border: 1px solid black;`;
-    
-    const warningMessage = `여기까지 콘텐츠가 올라온다면, CSS 문제가 아닙니다. Apple에 문의하세요.`;
-    
-    let isSafariUI = false;
+border: 1px solid black;`;
+
+    const warningMessage =
+        `여기까지 콘텐츠가 올라온다면, CSS 문제가 아닙니다. Apple에 문의하세요.`;
+
+    let isScrolled = false;
 
     function updateMessage() {
-        if (!window.visualViewport) return;
-    
-        const nextState = window.visualViewport.offsetTop > 0;
-    
-        if (nextState === isSafariUI) return;
-    
-        isSafariUI = nextState;
-    
-        message.textContent = isSafariUI
+        const nextState = window.scrollY > 0;
+
+        if (nextState === isScrolled) return;
+
+        isScrolled = nextState;
+
+        message.textContent = isScrolled
             ? warningMessage
             : normalMessage;
     }
-    
-    window.visualViewport?.addEventListener('resize', updateMessage);
-    window.visualViewport?.addEventListener('scroll', updateMessage);
-    
+
+    window.addEventListener('scroll', updateMessage, { passive: true });
+
     updateMessage();
 </script>
 
