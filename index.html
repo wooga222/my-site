@@ -24,15 +24,17 @@
         border-right: 1px solid black;
     }
 
-    /* 사용자 경험이 중요하다. 이것을 무시하면 디자이너의 무지개 똥을 뭍힌 모양새가 된다. 리퀴드 클래스는 반면교사로써 훌륭하다. */
+    /* 이렇게까지 해봤다는 기록 */
+    /*
     .top-cover {
         position: fixed;
         top: -30px;
         width: 100%;
         height: 30px;
         background: white;
-        z-index: 2;
+        z-index: 99;
     }
+    */
 
     .parent {
         position: relative;
@@ -109,5 +111,35 @@
     </section>
 
 </div>
+
+<script>
+    const message = document.querySelector('.section1');
+    
+    const normalMessage = `SECTION 1
+    border: 1px solid black;`;
+    
+    const warningMessage = `여기까지 콘텐츠가 올라온다면, CSS 문제가 아닙니다. Apple에 문의하세요.`;
+    
+    let isSafariUI = false;
+
+    function updateMessage() {
+        if (!window.visualViewport) return;
+    
+        const nextState = window.visualViewport.offsetTop > 0;
+    
+        if (nextState === isSafariUI) return;
+    
+        isSafariUI = nextState;
+    
+        message.textContent = isSafariUI
+            ? warningMessage
+            : normalMessage;
+    }
+    
+    window.visualViewport?.addEventListener('resize', updateMessage);
+    window.visualViewport?.addEventListener('scroll', updateMessage);
+    
+    updateMessage();
+</script>
 
 </body></html>
