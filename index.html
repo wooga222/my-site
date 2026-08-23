@@ -10,7 +10,7 @@
             url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_seven@1.2/KOMACON.woff') format('woff');
         font-weight: normal;
         font-display: swap;
-}
+    }
     
     * {
         box-sizing: border-box;
@@ -21,7 +21,6 @@
         margin: 0 10%;
         padding: 0;
         border: 1px solid black;
-        padding-top: env(safe-area-inset-top);
     }
 
     .parent {
@@ -39,19 +38,22 @@
     }
 
     .sticky1 {
-        top: 0;
+        top: env(safe-area-inset-top);
+
         border-bottom: 1px solid black;
     }
 
     .sticky2 {
-        top: 29px;
+        top: calc(env(safe-area-inset-top) + 29px);
+
         bottom: 29px;
         border-top: 1px solid black;
         border-bottom: 1px solid black;
     }
 
     .sticky3 {
-        top: 58px;
+        top: calc(env(safe-area-inset-top) + 58px);
+
         bottom: 0;
         border-top: 1px solid black;
         border-bottom: 1px solid black;
@@ -70,6 +72,7 @@
     <div class="sticky sticky1">
         STICKY 1 — TOP 0
     </div>
+
     <section class="section section1">
         SECTION 1<br>
         border: 1px solid black;
@@ -78,16 +81,18 @@
     <div class="sticky sticky2">
         STICKY 2 — TOP 29 / BOTTOM 29
     </div>
+
     <section class="section section2">
-    SECTION 2<br>
-    stick height: 30px;<br>
-    border-top, bottom: 1px<br>
-    30 - 1 = 29
+        SECTION 2<br>
+        stick height: 30px;<br>
+        border-top, bottom: 1px<br>
+        30 - 1 = 29
     </section>
 
     <div class="sticky sticky3">
         STICKY 3 — TOP 58 / BOTTOM 0
     </div>
+
     <section class="section section3">
         SECTION 3
     </section>
