@@ -3,48 +3,27 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>상세페이지 스티키 앵커 예시</title>
+    <title>상세페이지 스티키 타이틀 밀어내기 예시</title>
     <style>
-        /* 기본 리셋 및 모바일 보기 편한 스타일 */
         * { box-sizing: border-box; margin: 0; padding: 0; }
         body { 
             font-family: sans-serif; 
-            max-width: 480px; /* 모바일 화면 너비 가정 */
+            max-width: 480px; 
             margin: 0 auto; 
             background: #f9f9f9;
         }
 
-        /* 1. 최상단 고정 네비게이션 바 (Sticky Nav) */
-        .top-nav {
-            position: sticky;
-            top: 0;
-            background: #ffffff;
-            border-bottom: 1px solid #ddd;
-            display: flex;
-            justify-content: space-around;
-            padding: 12px 0;
-            z-index: 100; /* 내용물 위에 뜨도록 설정 */
-        }
-        .top-nav a {
-            text-decoration: none;
-            color: #333;
-            font-weight: bold;
-            font-size: 14px;
-        }
-
         /* 각 섹션 스타일 */
         .section {
-            /* 스크롤 시 네비게이션 바에 가리지 않도록 여백 확보 */
-            scroll-margin-top: 45px; 
-            margin-bottom: 40px;
+            margin-bottom: 20px;
         }
 
-        /* 2. 각 섹션 내부의 스티키 타이틀 (질문하신 핵심 부분) */
+        /* 각 섹션 내부의 스티키 타이틀 (서로 밀어내는 구조) */
         .section-title {
             position: sticky;
-            top: 45px; /* 최상단 네비게이션 바로 밑에 붙음 */
-            background: #ffeb33; /* 눈에 띄게 배경색 지정 */
-            padding: 10px 16px;
+            top: 0; /* 화면 맨 위에 붙음 */
+            background: #ffeb33; 
+            padding: 14px 16px;
             font-size: 16px;
             font-weight: bold;
             border-top: 1px solid #ddd;
@@ -52,11 +31,11 @@
             z-index: 10;
         }
 
-        /* 3. 섹션 내용물 영역 */
+        /* 섹션 내용물 영역 (높이를 1200px로 넉넉히 지정) */
         .section-content {
             background: #ffffff;
             padding: 20px 16px;
-            min-height: 400px; /* 스크롤 테스트를 위해 높이 지정 */
+            min-height: 1200px; 
             font-size: 14px;
             color: #666;
             line-height: 1.6;
@@ -65,19 +44,13 @@
 </head>
 <body>
 
-    <!-- 최상단 고정 네비게이션 -->
-    <nav class="top-nav">
-        <a href="#info">상세정보</a>
-        <a href="#spec">제원</a>
-        <a href="#review">리뷰</a>
-    </nav>
-
     <!-- 상세정보 섹션 -->
     <div id="info" class="section">
         <div class="section-title">상세정보</div>
         <div class="section-content">
-            여기는 상품의 매력적인 상세 설명이 들어가는 공간입니다.<br>
-            스크롤을 내려보세요! 제원 타이틀이 네비게이션 바로 밑에 찰싹 달라붙는 것을 볼 수 있습니다.
+            여기는 상세정보 내용입니다.<br>
+            스크롤을 내려보세요!<br>
+            다음 섹션인 '제원 및 스펙' 타이틀이 올라오면서 이 '상세정보' 타이틀을 위로 밀어내는 것을 볼 수 있습니다.
         </div>
     </div>
 
@@ -88,7 +61,7 @@
             - 사이즈: Free<br>
             - 소재: 면 100%<br>
             - 제조국: 대한민국<br>
-            스펙 내용들이 쭉 나열됩니다.
+            제원 내용들이 쭉 나열됩니다.
         </div>
     </div>
 
