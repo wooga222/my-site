@@ -1,18 +1,142 @@
 <!DOCTYPE html>
-<html>
-<head>
-    <meta charset="utf-8">
-    <title>내 브로슈어</title>
+<html lang="ko"><head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<style>
+    @font-face {
+        font-family: 'ManhwaPromotionAgency';
+        src:
+            url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_seven@1.2/KOMACON.woff') format('woff');
+        font-weight: normal;
+        font-display: swap;
+    }
     
-    <style>
-        body {
-            background-color: red;
-        }
-        h1 {
-        }
-    </style>
+    * {
+        box-sizing: border-box;
+    }
+
+    body {
+        font-family: 'ManhwaPromotionAgency';
+        margin: 0 10%;
+        padding: 0;
+        border-left: 1px solid black;
+        border-right: 1px solid black;
+    }
+
+    /* 이렇게까지 해봤다는 기록 */
+    /*
+    .top-cover {
+        position: fixed;
+        top: -30px;
+        width: 100%;
+        height: 30px;
+        background: white;
+        z-index: 99;
+    }
+    */
+
+    .parent {
+        position: relative;
+        height: 6000px;
+    }
+
+    .sticky {
+        position: sticky;
+        height: 30px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background-color: white;
+    }
+
+    .sticky1 {
+        top: 0;
+        border-bottom: 1px solid black;
+    }
+
+    .sticky2 {
+        top: 29px;
+
+        bottom: 29px;
+        border-top: 1px solid black;
+        border-bottom: 1px solid black;
+    }
+
+    .sticky3 {
+        top: 58px;
+
+        bottom: 0;
+        border-top: 1px solid black;
+        border-bottom: 1px solid black;
+    }
+
+    .section {
+        height: 1970px;
+        padding: 20px;
+    }
+</style>
 </head>
+
 <body>
-    <p>안녕하세요! 브로슈어 테스트 페이지입니다.</p>
-</body>
-</html>
+<div class="top-cover"></div>
+
+<div class="parent">
+    <div class="sticky sticky1">
+        STICKY 1 — TOP 0
+    </div>
+
+    <section class="section section1">
+        SECTION 1<br>
+        border: 1px solid black;
+    </section>
+
+    <div class="sticky sticky2">
+        STICKY 2 — TOP 29 / BOTTOM 29
+    </div>
+
+    <section class="section section2">
+        SECTION 2<br>
+        stick height: 30px;<br>
+        border-top, bottom: 1px<br>
+        30 - 1 = 29
+    </section>
+
+    <div class="sticky sticky3">
+        STICKY 3 — TOP 58 / BOTTOM 0
+    </div>
+
+    <section class="section section3">
+        SECTION 3
+    </section>
+
+</div>
+
+<script>
+    const message = document.querySelector('.section1');
+
+    const normalMessage = `SECTION 1<br>border: 1px solid black;`;
+
+    const warningMessage =
+        `여기까지 콘텐츠가 올라온다면, CSS 문제가 아닙니다. Apple에 문의하세요.`;
+
+    let isScrolled = false;
+
+    function updateMessage() {
+        const nextState = window.scrollY > 50;
+
+        if (nextState === isScrolled) return;
+
+        isScrolled = nextState;
+
+        message.innerHTML = isScrolled
+            ? warningMessage
+            : normalMessage;
+    }
+
+    window.addEventListener('scroll', updateMessage, { passive: true });
+
+    updateMessage();
+</script>
+
+</body></html>
