@@ -54,6 +54,10 @@
         const renderer = new THREE.WebGLRenderer({ antialias: true });
         renderer.setSize(window.innerWidth, window.innerHeight);
         renderer.shadowMap.enabled = true;
+
+        // 👇 [수정] 그림자 외곽선을 부드럽게 만들어줍니다 (깨짐 방지)
+        renderer.shadowMap.type = THREE.PCFSoftShadowMap;
+        
         renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
         renderer.outputColorSpace = THREE.SRGBColorSpace;
         document.body.appendChild(renderer.domElement);
@@ -67,9 +71,13 @@
         directionalLight.position.set(10, 20, 10);
 
         directionalLight.castShadow = true;
-        directionalLight.shadow.mapSize.width = 512;  // 그림자 해상도 높이기 (선명함)
-        directionalLight.shadow.mapSize.height = 512;
-        directionalLight.shadow.bias = -0.001;        // 그림자 깨짐(Artifact) 방지
+
+        // 👇 [핵심 추가] 그림자의 진한 정도(투명도)를 50%로 설정 (0.0 ~ 1.0 사이 값)
+        directionalLight.shadow.intensity = 0.5;
+        
+        directionalLight.shadow.mapSize.width = 2048;  // 그림자 해상도 높이기 (선명함)
+        directionalLight.shadow.mapSize.height = 2048;
+        directionalLight.shadow.bias = -0.0001;        // 그림자 깨짐(Artifact) 방지
 
         // (선택) 부드러운 그림자 대신 가장 연산이 빠른 기본 그림자 타입 명시
         renderer.shadowMap.type = THREE.PCFShadowMap;
