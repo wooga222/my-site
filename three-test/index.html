@@ -53,6 +53,7 @@
         
         const renderer = new THREE.WebGLRenderer({ antialias: true });
         renderer.setSize(window.innerWidth, window.innerHeight);
+        renderer.shadowMap.enabled = true;
         renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
         renderer.outputColorSpace = THREE.SRGBColorSpace;
         document.body.appendChild(renderer.domElement);
@@ -61,8 +62,13 @@
         const ambientLight = new THREE.AmbientLight(0xffffff, 0.5); // 전체를 은은하게 밝히는 빛
         scene.add(ambientLight);
 
-        const directionalLight = new THREE.DirectionalLight(0xECE9D8, 3.14); // 따뜻한 빛 색상으로 변경
-        directionalLight.position.set(10, 15, 10);
+        const directionalLight = new THREE.DirectionalLight(0xECE9D8, 2); // 따뜻한 빛 색상으로 변경
+        // 👇 [추가] 조명이 그림자를 생성하도록 설정
+        directionalLight.castShadow = true;
+        directionalLight.shadow.mapSize.width = 2048;  // 그림자 해상도 높이기 (선명함)
+        directionalLight.shadow.mapSize.height = 2048;
+        directionalLight.shadow.bias = -0.0001;        // 그림자 깨짐(Artifact) 방지
+        
         scene.add(directionalLight);
 
         // 3. 컨트롤 설정 (이미 좌클릭=회전, 우클릭=이동, 휠=줌인/아웃이 기본 적용됩니다!)
