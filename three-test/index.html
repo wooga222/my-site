@@ -58,7 +58,7 @@
         document.body.appendChild(renderer.domElement);
 
         // 2. 조명 켜기 (윈도우 3D 뷰어처럼 기본적으로 잘 보이게 설정)
-        const ambientLight = new THREE.AmbientLight(0xffffff, 1.0); // 전체를 은은하게 밝히는 빛
+        const ambientLight = new THREE.AmbientLight(0xffffff, 0.5); // 전체를 은은하게 밝히는 빛
         scene.add(ambientLight);
 
         const directionalLight = new THREE.DirectionalLight(0xECE9D8, 1.5); // 따뜻한 빛 색상으로 변경
