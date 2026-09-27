@@ -54,9 +54,6 @@
         const renderer = new THREE.WebGLRenderer({ antialias: true });
         renderer.setSize(window.innerWidth, window.innerHeight);
         renderer.shadowMap.enabled = true;
-
-        // 👇 [수정] 그림자 외곽선을 부드럽게 만들어줍니다 (깨짐 방지)
-        renderer.shadowMap.type = THREE.PCFSoftShadowMap;
         
         renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
         renderer.outputColorSpace = THREE.SRGBColorSpace;
@@ -81,16 +78,6 @@
 
         // (선택) 부드러운 그림자 대신 가장 연산이 빠른 기본 그림자 타입 명시
         renderer.shadowMap.type = THREE.PCFShadowMap;
-        
-        // 👇 [추가] 그림자 카메라 영역 설정 
-        // (그림자가 잘린다면 이 수치들을 모델 크기에 맞게 더 크게 늘려주세요)
-        const d = 15; 
-        directionalLight.shadow.camera.left = -d;
-        directionalLight.shadow.camera.right = d;
-        directionalLight.shadow.camera.top = d;
-        directionalLight.shadow.camera.bottom = -d;
-        directionalLight.shadow.camera.near = 0.5;
-        directionalLight.shadow.camera.far = 50;
         
         scene.add(directionalLight);
 
