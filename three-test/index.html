@@ -67,9 +67,12 @@
         directionalLight.position.set(10, 20, 10);
 
         directionalLight.castShadow = true;
-        directionalLight.shadow.mapSize.width = 1024;  // 그림자 해상도 높이기 (선명함)
-        directionalLight.shadow.mapSize.height = 1024;
+        directionalLight.shadow.mapSize.width = 512;  // 그림자 해상도 높이기 (선명함)
+        directionalLight.shadow.mapSize.height = 512;
         directionalLight.shadow.bias = -0.001;        // 그림자 깨짐(Artifact) 방지
+
+        // (선택) 부드러운 그림자 대신 가장 연산이 빠른 기본 그림자 타입 명시
+        renderer.shadowMap.type = THREE.PCFShadowMap;
         
         // 👇 [추가] 그림자 카메라 영역 설정 
         // (그림자가 잘린다면 이 수치들을 모델 크기에 맞게 더 크게 늘려주세요)
