@@ -95,7 +95,7 @@
                 const cameraZ = Math.abs(maxDim / 2 / Math.tan(fov / 2)) * 1.125;
 
                 // 약간 위쪽(쿼터뷰 느낌)에서 바라보도록 카메라 위치 세팅
-                camera.position.set(center.x + cameraZ * 0.5, center.y + cameraZ * 0.5, center.z + cameraZ);
+                camera.position.set(center.x + cameraZ * 0.25, center.y + cameraZ * 0.25, center.z + cameraZ * 0.25);
                 
                 // 마우스 회전의 중심점을 모델의 한가운데로 맞춤
                 controls.target.copy(center);
